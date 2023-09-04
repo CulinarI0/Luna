@@ -8,7 +8,9 @@
 - [ ] Fifth page: user config/preferences
 
 ## Layout
-- [ ] Every page must have three buttons (search, match, discover/recipes)
+- [x] Every page must have three buttons (search, match, discover/recipes)
+      
+### Definitions
 1. Search is the function for the user to search for any drink or food
 2. Match is the function for the user with some questions (to be defined) to recommend what kind of food or drink the person can eat/drink
 3. Discover/Recipes is the function to show the infos and/or recipes of the drinks/foods
