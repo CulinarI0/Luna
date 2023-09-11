@@ -17,10 +17,16 @@ export function FooterButtons() {
           Match
         </Link>
         <Link
-          href="/"
+          href="/discover"
           className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded"
         >
-          Discover/Recipes
+          Discover
+        </Link>
+        <Link
+          href="/recipes"
+          className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded"
+        >
+          Recipes
         </Link>
       </div>
     </footer>
