@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
-import CulinarIOLogo from "../assets/oi.png";
+import CulinarIOLogo from "../assets/CulinarIOLogo.png";
 import SearchComponent from "./SearchBar"
 
 export function HeaderButtons() {
@@ -9,7 +9,9 @@ export function HeaderButtons() {
     <header className="bg-[#F9EFE5] py-4">
       <div className="flex items-center justify-center gap-2">
         <div className="absolute left-0 py-2">
-      <Image src={CulinarIOLogo} alt="CulinarIOLogo" width={175} height={100}/>
+      <Link href="/">
+        <Image src={CulinarIOLogo} alt="CulinarIOLogo" width={175} height={100}/>
+      </Link>
         </div>
         <SearchComponent/>
         <Link
