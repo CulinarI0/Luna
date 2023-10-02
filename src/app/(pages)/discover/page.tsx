@@ -1,7 +1,7 @@
-export default function DiscoverPage(){
+export default function DiscoverPage() {
   return (
-  <div>
-    Hello Discover Page
-  </div>
+    <div>
+      Hello Discover Page
+    </div>
   )
 }
