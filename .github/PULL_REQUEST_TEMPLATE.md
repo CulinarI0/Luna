@@ -6,4 +6,4 @@
 
 ## Other Information [List]
 
-<!-- If there is anything else that is relevant to your pull request include that information here. Thank you for contributing to Lunea! -->
+<!-- If there is anything else that is relevant to your pull request include that information here. Thank you for contributing to Luna! -->
