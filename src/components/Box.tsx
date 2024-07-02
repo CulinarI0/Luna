@@ -4,18 +4,21 @@ interface IBoxProps {
   title: string;
   children?: ReactNode;
 }
+
 export function Box({ title, children }: IBoxProps) {
   return (
     <div
-      className="w-full md:w-[351px] h-auto md:h-[728px] bg-zinc-300 shadow border border-black mx-2 md:mx-8 my-4"
+      className="flex justify-center items-center w-full h-full bg-zinc-300 shadow border border-black mx-2 my-4 sm:mx-4 md:mx-8 lg:max-w-lg xl:max-w-xl"
       id="Box"
     >
       <div
-        className="text-black text-4xl font-normal font-['Inknut Antiqua'] text-center p-4"
+        className="text-black text-xl sm:text-2xl md:text-3xl font-normal font-['Inknut Antiqua'] text-center p-4"
         title={title}
       >
         <h1>{title}</h1>
-        {children}
+        <div className="flex flex-col justify-center items-center">
+          {children}
+        </div>
       </div>
     </div>
   );
