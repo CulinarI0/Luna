@@ -1,85 +1,52 @@
 "use client";
-import { ChangeEvent, useState } from "react";
-import Modal from "@/components/Modal";
 import questions from "@/mock/mockQuestions";
-import QuestionNavigator from "@/components/Questions/QuestionNavigator";
-import Question from "@/components/Questions/Question";
-import ReviewAnswers from "@/components/Questions/ReviewAnswer";
-import useModal from "@/hooks/useModal";
+import { renderQuestionComponent } from "@/components/Question/QuestionFactory";
+import useQuestionnaire  from "@/hooks/Questionnaire";
 
 export default function MatchPage() {
-  const [userAnswers, setUserAnswers] = useState<string[]>([]);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
-  const [isEditMode, setIsEditMode] = useState(false);
-  const currentQuestion = questions[currentQuestionIndex];
-  const { isModalOpen, handleOpenModal, handleCloseModal } = useModal();
+  const { answers, handleChange, disabledQuestions, suggestedOptionsState } = useQuestionnaire(questions);
 
-
-  const handleAnswerChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const updatedAnswers = [...userAnswers];
-    updatedAnswers[currentQuestionIndex] = event.target.value;
-    setUserAnswers(updatedAnswers);
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    console.log("Submitted Answers:", answers);
   };
 
-  const handleEditAnswer = (questionIndex: number) => {
-    setCurrentQuestionIndex(questionIndex);
-    setIsFinished(false);
-    setIsEditMode(true); // Entering edit mode
-  };
+  const renderQuestions = (questions: Question[]) =>
+    questions.map((question) => {
+      const isDisabled = disabledQuestions[question.id] == true;
+      const suggestedOptions =  suggestedOptionsState[question.id]
+      const questionProps = {
+        question,
+        handleChange,
+        answers,
+        isDisabled,
+        suggestedOptions
+      };
 
-  const handleFinishEdit = () => {
-    setIsEditMode(false); // Exiting edit mode
-    setIsFinished(true); // Finish the questionnaire
-  };
-  
-  const handleFinishQuestions = () => {
-    setIsFinished(true);
-  };
-
-  const handleNextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      handleFinishQuestions();
-    }
-  };
-
-  const isLastQuestion = currentQuestionIndex === questions.length - 1;
+      return (
+        <div key={question.id}>{renderQuestionComponent(questionProps)}</div>
+      );
+    });
 
   return (
-    <div className="flex justify-center items-center">
-      <button
-        className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={handleOpenModal}
-      >
-        Open Matching Questions
-      </button>
-
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <div className="text-lg text-black mb-4 overflow-auto max-h-60">
-          {isFinished ? (
-            <ReviewAnswers
-              questions={questions}
-              answers={userAnswers}
-              onEditAnswer={handleEditAnswer}
-            />
-          ) : (
-            <Question
-              question={currentQuestion}
-              answer={userAnswers[currentQuestionIndex] || ""}
-              onAnswerChange={handleAnswerChange}
-            />
-          )}
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          {renderQuestions(questions.filter((q) => q.type === "choice"))}
         </div>
-
-        {!isFinished && (
-          <QuestionNavigator
-            isLastQuestion={isEditMode ? true : isLastQuestion} // In edit mode, always treat it as the last question
-            onNavigate={isEditMode ? handleFinishEdit : (isLastQuestion ? handleFinishQuestions : handleNextQuestion)}
-          />
-        )}
-      </Modal>
-    </div>
+        <div>{renderQuestions(questions.filter((q) => q.type === "text"))}</div>
+      </div>
+      <div className="flex justify-center mt-4">
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
   );
 }
