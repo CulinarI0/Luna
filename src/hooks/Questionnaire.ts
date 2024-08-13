@@ -26,7 +26,7 @@ const useQuestionnaire = (questions: Question[]) => {
     });
 
     setDisabledQuestions(newDisabledQuestions);
-    debugger
+    debugger;
     const newSuggestedOptions: { [key: string]: string[] } = {};
     questions.forEach((question) => {
       question.constraints?.forEach((constraint) => {
@@ -40,7 +40,7 @@ const useQuestionnaire = (questions: Question[]) => {
       });
     });
     setSuggestedOptions(newSuggestedOptions);
-  }, [answers, questions]);
+  }, [answers, disabledQuestions, questions]);
 
   const handleChange = (id: string, value: string) => {
     setAnswers((prev) => {
@@ -78,7 +78,7 @@ const useQuestionnaire = (questions: Question[]) => {
     });
   };
 
-  return { answers, handleChange, disabledQuestions, suggestedOptionsState  };
+  return { answers, handleChange, disabledQuestions, suggestedOptionsState };
 };
 
 export default useQuestionnaire;

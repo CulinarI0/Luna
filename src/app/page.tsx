@@ -3,7 +3,6 @@ import { Box } from "@/components/Box";
 import Carousel from "@/components/Carousel";
 import { cocktailList, foodList, wineList } from "@/mock/cardlistitems";
 export default function Home() {
-
   return (
     <div className="flex justify-center items-center w-full">
       {true ? (

@@ -25,7 +25,7 @@ const Question = ({ question, answer, onAnswerChange }: IQuestionProps) => {
         );
       case "choice":
         if (question.options == undefined) return null;
-        return  (
+        return (
           <div>
             {question.options?.map((option, index) => (
               <label key={index} className="block mt-2">
@@ -54,6 +54,5 @@ const Question = ({ question, answer, onAnswerChange }: IQuestionProps) => {
     </div>
   );
 };
-
 
 export default Question;
