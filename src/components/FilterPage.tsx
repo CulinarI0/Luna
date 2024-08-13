@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import mockData from "./mockData";
-import mockResults from "./mockResults";
+import mockData from "../mock/mockData";
+import mockResults from "../mock/mockResults";
 
 interface FilterProps {
   selectedFilters: string[];
