@@ -1,3 +1,12 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "eslint:recommended",      // Regras recomendadas do ESLint
+    "plugin:react/recommended", // Regras recomendadas do React
+    "plugin:react-hooks/recommended", // Regras recomendadas para React Hooks
+    "plugin:@next/next/recommended",  // Regras recomendadas para Next.js
+    "next/core-web-vitals"  // Regras específicas para melhorar o desempenho e a acessibilidade do Next.js
+  ],
+  "rules": {
+    "no-console": ["error", { "allow": ["warn", "error"] }]
+  }
 }

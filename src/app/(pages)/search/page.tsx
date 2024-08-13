@@ -1,9 +1,8 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Search(){
-
+export default function Search() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<string[]>([]);
 
@@ -12,10 +11,10 @@ export default function Search(){
 
     setResults(mockSearchResultsults);
   };
-  return(
-   <div>
-    Hello <Link href="/">search</Link>
-   <div className="container mx-auto mt-8 text-center">
+  return (
+    <div>
+      Hello <Link href="/">search</Link>
+      <div className="container mx-auto mt-8 text-center">
         <h1 className="text-2xl font-semibold">Search Page</h1>
         <div className="mt-4">
           <input
@@ -46,7 +45,6 @@ export default function Search(){
           )}
         </div>
       </div>
-   </div>
-
-  )
+    </div>
+  );
 }

@@ -19,7 +19,7 @@ describe("<Carousel />", () => {
         <Box title="Food List">
           <CardList items={foodList} />
         </Box>
-      </Carousel>
+      </Carousel>,
     );
 
     // Check that the first slide is displayed

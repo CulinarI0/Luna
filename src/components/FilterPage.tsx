@@ -7,9 +7,10 @@ interface FilterProps {
   onFilterChange: (selectedFilters: string[]) => void;
 }
 
-const FilterComponent: React.FC<FilterProps> = (
-  { selectedFilters, onFilterChange },
-) => {
+const FilterComponent: React.FC<FilterProps> = ({
+  selectedFilters,
+  onFilterChange,
+}) => {
   const handleFilterChange = (filter: string) => {
     const updatedFilters = selectedFilters.includes(filter)
       ? selectedFilters.filter((selected) => selected !== filter)
@@ -27,7 +28,7 @@ const FilterComponent: React.FC<FilterProps> = (
   // Filter the mock results based on selected filters
   const filteredResults =
     mockResults.filter((item) => selectedFilters.includes(item.name)).length ==
-        0
+    0
       ? mockResults
       : mockResults.filter((item) => selectedFilters.includes(item.name));
 

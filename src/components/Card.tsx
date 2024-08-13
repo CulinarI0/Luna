@@ -19,10 +19,12 @@ function Card({ content }: ICardProps) {
   );
 }
 
-export const CardList= ({ items } : ICardListProps) => {
+export const CardList = ({ items }: ICardListProps) => {
   return (
     <>
-      {items.map((item, index) => <Card key={index} content={item} />)}
+      {items.map((item, index) => (
+        <Card key={index} content={item} />
+      ))}
     </>
   );
 };

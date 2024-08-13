@@ -26,7 +26,7 @@ const questions: Question[] = [
     type: "choice",
     options: ["Red wine", "Merlot", "Test2"],
     id: "7917f388-f6f8-4da4-bba2-47ef78dfa221",
-    number: 2, 
+    number: 2,
     constraints: [
       {
         // This question's answer is dependent on the answer to the question with the following id

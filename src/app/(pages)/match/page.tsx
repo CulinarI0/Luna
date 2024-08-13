@@ -1,10 +1,11 @@
 "use client";
 import questions from "@/mock/mockQuestions";
 import { renderQuestionComponent } from "@/components/Question/QuestionFactory";
-import useQuestionnaire  from "@/hooks/Questionnaire";
+import useQuestionnaire from "@/hooks/Questionnaire";
 
 export default function MatchPage() {
-  const { answers, handleChange, disabledQuestions, suggestedOptionsState } = useQuestionnaire(questions);
+  const { answers, handleChange, disabledQuestions, suggestedOptionsState } =
+    useQuestionnaire(questions);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -14,13 +15,13 @@ export default function MatchPage() {
   const renderQuestions = (questions: Question[]) =>
     questions.map((question) => {
       const isDisabled = disabledQuestions[question.id] == true;
-      const suggestedOptions =  suggestedOptionsState[question.id]
+      const suggestedOptions = suggestedOptionsState[question.id];
       const questionProps = {
         question,
         handleChange,
         answers,
         isDisabled,
-        suggestedOptions
+        suggestedOptions,
       };
 
       return (

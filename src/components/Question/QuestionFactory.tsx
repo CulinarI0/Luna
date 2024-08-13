@@ -1,14 +1,14 @@
-import React from 'react';
-import QuestionChoice from './QuestionChoice';
-import QuestionText from './QuestionText';
+import React from "react";
+import QuestionChoice from "./QuestionChoice";
+import QuestionText from "./QuestionText";
 
 export const renderQuestionComponent = (props: IQuestionProps) => {
   const { question } = props;
 
   switch (question.type) {
-    case 'choice':
+    case "choice":
       return <QuestionChoice {...props} />;
-    case 'text':
+    case "text":
       return <QuestionText {...props} />;
     default:
       return null;

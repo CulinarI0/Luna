@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface IReviewAnswersProps {
   questions: { text: string }[];
@@ -6,7 +6,11 @@ interface IReviewAnswersProps {
   onEditAnswer: (questionIndex: number) => void;
 }
 
-const ReviewAnswers = ({ questions, answers, onEditAnswer }: IReviewAnswersProps) => {
+const ReviewAnswers = ({
+  questions,
+  answers,
+  onEditAnswer,
+}: IReviewAnswersProps) => {
   return (
     <div>
       <h2 className="text-xl text-black mb-4">Your Answers:</h2>
