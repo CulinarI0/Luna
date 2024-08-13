@@ -1,0 +1,29 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Question {
+  id          String  @id @default(uuid())
+  text        String
+  type        String  @db.VarChar(10) // 'choice' or 'text'
+  number      Int
+  options     Json? // JSON field for storing options as an array of strings
+  dependsOnId String? // ID of the question this one depends on
+  constraints Json? // JSON field for storing constraints
+  suggestions Json? // JSON field for storing suggestions
+
+  // Relationships
+  dependsOn          Question?  @relation("DependsOn", fields: [dependsOnId], references: [id])
+  dependentQuestions Question[] @relation("DependsOn")
+
+  @@unique([text, number]) // Ensures uniqueness of text and number combination
+  // Indexes to ensure unique constraints
+  @@index([dependsOnId])
+}
