@@ -1,3 +1,4 @@
+import { Answer, Question } from "@/models/Question";
 import { useEffect, useState } from "react";
 
 const useQuestionnaire = (questions: Question[]) => {
@@ -26,7 +27,6 @@ const useQuestionnaire = (questions: Question[]) => {
     });
 
     setDisabledQuestions(newDisabledQuestions);
-    debugger;
     const newSuggestedOptions: { [key: string]: string[] } = {};
     questions.forEach((question) => {
       question.constraints?.forEach((constraint) => {
@@ -52,7 +52,6 @@ const useQuestionnaire = (questions: Question[]) => {
         const dependentAnswer = newAnswers[constraint.dependsOnId];
         // Check if the condition for the dependent answer is met
         const condition = constraint.conditions[dependentAnswer];
-        debugger;
         if (condition) {
           // If condition is met, update the answer of the dependent question
           newAnswers[constraint.dependsOnId] = condition;

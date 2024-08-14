@@ -1,8 +1,8 @@
-interface Answer {
+export interface Answer {
   [key: string]: string;
 }
 
-interface Question {
+export interface Question {
   text: string;
   type: "choice" | "text";
   options?: string[];
@@ -11,7 +11,7 @@ interface Question {
   constraints?: Constraint[];
 }
 
-interface Constraint {
+export interface Constraint {
   dependsOnId: string;
   conditions: { [key: string]: string };
   suggestions?: { [key: string]: string[] };

@@ -4,6 +4,7 @@ import mockResults from "../mock/mockResults";
 
 interface FilterProps {
   selectedFilters: string[];
+  // eslint-disable-next-line no-unused-vars
   onFilterChange: (selectedFilters: string[]) => void;
 }
 

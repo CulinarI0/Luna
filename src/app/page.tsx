@@ -5,6 +5,7 @@ import { cocktailList, foodList, wineList } from "@/mock/cardlistitems";
 export default function Home() {
   return (
     <div className="flex justify-center items-center w-full">
+      {/* eslint-disable-next-line no-constant-condition */}
       {true ? (
         <Carousel>
           <Box title="Wine List">

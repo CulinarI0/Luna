@@ -1,4 +1,4 @@
-import React, { ReactNode, FunctionComponent } from "react";
+import React, { ReactNode } from "react";
 
 interface IModalProps {
   isOpen: boolean;

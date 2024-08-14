@@ -8,5 +8,11 @@
   ],
   "rules": {
     "no-console": ["error", { "allow": ["warn", "error"] }]
-  }
+  },
+  "ignorePatterns": [
+    "tsconfig.json",
+    "*.config.*",
+    "cypress/**/*",
+    "*.cy.*"
+  ]
 }

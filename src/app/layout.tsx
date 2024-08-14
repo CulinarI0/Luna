@@ -1,6 +1,6 @@
 import { HeaderButtons } from "@/components/Header";
 // import { Metadata } from "next";
-
+import React from 'react'
 import { Inter as CustomFont } from "next/font/google";
 import "./globals.css";
 const customFont = CustomFont({

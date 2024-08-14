@@ -1,3 +1,5 @@
+import { IQuestionProps } from "./IIQuestionsProps";
+
 const QuestionText = ({
   question,
   handleChange,
