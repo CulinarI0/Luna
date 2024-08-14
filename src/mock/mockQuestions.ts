@@ -1,3 +1,5 @@
+import { Question } from "@/models/Question";
+
 const questions: Question[] = [
   {
     text: "What kind of wine do you like?",

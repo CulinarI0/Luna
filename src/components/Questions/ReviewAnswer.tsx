@@ -3,6 +3,7 @@ import React from "react";
 interface IReviewAnswersProps {
   questions: { text: string }[];
   answers: string[];
+  // eslint-disable-next-line no-unused-vars
   onEditAnswer: (questionIndex: number) => void;
 }
 

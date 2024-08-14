@@ -2,14 +2,14 @@
 import questions from "@/mock/mockQuestions";
 import { renderQuestionComponent } from "@/components/Question/QuestionFactory";
 import useQuestionnaire from "@/hooks/Questionnaire";
-
+import { Question } from "@/models/Question";
+import React from "react";
 export default function MatchPage() {
   const { answers, handleChange, disabledQuestions, suggestedOptionsState } =
     useQuestionnaire(questions);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("Submitted Answers:", answers);
   };
 
   const renderQuestions = (questions: Question[]) =>

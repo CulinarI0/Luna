@@ -1,3 +1,5 @@
+import { IQuestionProps } from "./IIQuestionsProps";
+
 const QuestionChoice = ({
   question,
   handleChange,

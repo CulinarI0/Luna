@@ -9,7 +9,6 @@ const Carousel = ({ children }: ICarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const changeSlide = (index: number) => {
-    console.log("Changing index carousel", index);
     setActiveIndex(index);
   };
 

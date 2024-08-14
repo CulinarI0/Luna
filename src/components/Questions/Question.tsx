@@ -7,6 +7,7 @@ interface IQuestionProps {
     options?: string[];
   };
   answer: string;
+  // eslint-disable-next-line no-unused-vars
   onAnswerChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
