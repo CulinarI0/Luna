@@ -27,3 +27,10 @@ model Question {
   // Indexes to ensure unique constraints
   @@index([dependsOnId])
 }
+
+model Wine {
+  id    String @id @default(uuid())
+  name  String
+  type  String
+  price Int
+}
