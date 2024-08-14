@@ -1,15 +1,19 @@
 import { CardList } from "@/components/Card";
 import { Box } from "@/components/Box";
 import Carousel from "@/components/Carousel";
-import { cocktailList, foodList, wineList } from "@/mock/cardlistitems";
-export default function Home() {
+import { cocktailList, foodList } from "@/mock/cardlistitems";
+import getWineNames from "@/api/wineApi";
+
+export default async function Home() {
+  const wineNames = await getWineNames();
+
   return (
     <div className="flex justify-center items-center w-full">
       {/* eslint-disable-next-line no-constant-condition */}
       {true ? (
         <Carousel>
           <Box title="Wine List">
-            <CardList items={wineList} />
+            <CardList items={wineNames} />
           </Box>
           <Box title="Cocktail List">
             <CardList items={cocktailList} />
@@ -21,7 +25,7 @@ export default function Home() {
       ) : (
         <div className="flex justify-center items-center w-full">
           <Box title="Wine List">
-            <CardList items={wineList} />
+            <CardList items={wineNames} />
           </Box>
           <Box title="Cocktail List">
             <CardList items={cocktailList} />
