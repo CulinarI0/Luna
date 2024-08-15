@@ -1,33 +1,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
-import CulinarIOLogo from "../assets/CulinarIOLogo.png";
+import MatchIOLogo from "../assets/MatchIOLogo.png";
 import SearchComponent from "./SearchBar";
 
 export function HeaderButtons() {
   return (
-    <header className="bg-[#F9EFE5] py-4">
-      <div className="flex items-center justify-center gap-2">
-        <div className="absolute left-0 py-2">
+    <header className="bg-[#FAFAFA] py-2" >
+      <div className="flex items-center justify-between mx-auto max-w-screen-xl max-h-[100px]">
+        {/* Left side: Image and Search */}
+        <div className="flex items-center gap-2">
           <Link href="/">
             <Image
-              src={CulinarIOLogo}
-              alt="CulinarIOLogo"
+              src={MatchIOLogo}
+              alt="MatchIOLogo"
               width={175}
-              height={100}
+              height={50} 
             />
           </Link>
+          <SearchComponent />
         </div>
-        <SearchComponent />
-        <Link href="/match">
-          <Button label="Match" />
-        </Link>
-        <Link href="/discover">
-          <Button label="Discover" />
-        </Link>
-        <Link href="/recipes">
-          <Button label="Recipes" />
-        </Link>
+
+        {/* Right side: Buttons */}
+        <div className="flex items-center gap-2">
+          <Link href="/">
+            <Button label="Match" />
+          </Link>
+          <Link href="/discover">
+            <Button label="All Resources" />
+          </Link>
+          <Link href="/login">
+            <Button label="Log In" />
+          </Link>
+          <Link href="/signup">
+            <Button label="Free Sign Up" />
+          </Link>
+        </div>
       </div>
     </header>
   );

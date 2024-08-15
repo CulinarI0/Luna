@@ -25,7 +25,7 @@ export default function RootLayout({ children }: LayoutProps) {
       <body>
         <div className="flex flex-col min-h-screen">
           <HeaderButtons />
-          <main className="flex-grow bg-[#F9EFE5]">{children}</main>
+          <main className="flex-grow bg-[#FAFAFA]">{children}</main>
         </div>
       </body>
     </html>

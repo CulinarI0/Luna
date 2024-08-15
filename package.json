@@ -31,6 +31,7 @@
   "devDependencies": {
     "@types/node": "^22.2.0",
     "cypress": "^13.6.6",
+    "daisyui": "^4.12.10",
     "prettier": "^3.3.3",
     "prisma": "^5.18.0",
     "ts-node": "^10.9.2",
