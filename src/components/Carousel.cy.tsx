@@ -6,12 +6,14 @@ import { Box } from "./Box";
 import { CardList } from "./Card";
 import { cocktailList, foodList, wineList } from "@/mock/cardlistitems";
 
+const wineName = wineList.map(x=>x.name);
+
 describe("<Carousel />", () => {
   it("renders and navigates between slides", () => {
     cy.mount(
       <Carousel>
         <Box title="Wine List">
-          <CardList items={wineList} />
+          <CardList items={wineName} />
         </Box>
         <Box title="Cocktail List">
           <CardList items={cocktailList} />
